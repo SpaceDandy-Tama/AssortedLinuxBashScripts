@@ -43,8 +43,6 @@ Packages[12]=steam # Steam https://store.steampowered.com/
 Packages[13]=transmission # Torrent Client
 Packages[14]=gamemode # CPU Governor https://github.com/FeralInteractive/gamemode
 Packages[15]=rabbitvcs-nautilus # Nautilus Git integration thingy
-Packages[16]=mangohud # MSI Afterburner analogue
-Packages[17]=goverlay # Shitty GUI app for mangohud
 
 for i in "${Packages[@]}"
 do
