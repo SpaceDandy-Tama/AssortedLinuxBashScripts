@@ -42,6 +42,7 @@ Packages[11]=discord # Discord https://discord.com/
 Packages[12]=steam # Steam https://store.steampowered.com/
 Packages[13]=transmission # Torrent Client
 Packages[14]=gamemode # CPU Governor https://github.com/FeralInteractive/gamemode
+Packages[15]=rabbitvcs-nautilus # Nautilus Git integration thingy
 
 for i in "${Packages[@]}"
 do
