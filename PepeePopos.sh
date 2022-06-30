@@ -20,6 +20,22 @@ do
 done < "$dumpFile"
 rm "$dumpFile"
 
+#Disable Stupid Shit like tty console bullshit
+	#nautilus
+dumpFile="gsettings.dump"
+gsettings list-recursively | grep switch-to-session > "$dumpFile"
+while IFS= read -r line
+do
+	lineArray=($line)
+	gsettings set ${lineArray[0]} ${lineArray[1]} "['']"
+done < "$dumpFile"
+rm "$dumpFile"
+	#x11
+echo "" >> /etc/X11/xorg.conf
+echo "Section \"ServerFlags\"" >> /etc/X11/xorg.conf
+echo "    Option \"DontVTSwitch\" \"true\"" >> /etc/X11/xorg.conf
+echo "EndSection" >> /etc/X11/xorg.conf
+
 # Check for updates
 sudo apt update
 # Download and apply upgrades
@@ -42,7 +58,13 @@ Packages[11]=discord # Discord https://discord.com/
 Packages[12]=steam # Steam https://store.steampowered.com/
 Packages[13]=transmission # Torrent Client
 Packages[14]=gamemode # CPU Governor https://github.com/FeralInteractive/gamemode
-Packages[15]=rabbitvcs-nautilus # Nautilus Git integration thingy
+Packages[15]=git #git
+Packages[16]=git-lfs #git large file thingy
+Packages[17]=rabbitvcs-nautilus # Nautilus Git integration thingy
+Packages[18]=krita #Photoshop alternative
+Packages[19]=inkscape #Illustrator alternative
+Packages[20]=kdenlive #Video Editor
+Packages[21]=obs-studio #Screen Recorder
 
 for i in "${Packages[@]}"
 do
@@ -52,6 +74,9 @@ do
 		echo "Skipping $i installation..."
 	fi
 done
+
+#Initialize git-lfs
+git lfs install
 
 # Need the gnome extension to gamemode as well
 echo 'Install gamemode gnome extension using the browser from this link: (or skip)'
