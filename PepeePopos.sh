@@ -65,6 +65,8 @@ Packages[18]=krita #Photoshop alternative
 Packages[19]=inkscape #Illustrator alternative
 Packages[20]=kdenlive #Video Editor
 Packages[21]=obs-studio #Screen Recorder
+Packages[22]=bookworm # Ebook reader
+Packages[23]=okular # PDF reader (has background color change support)
 
 for i in "${Packages[@]}"
 do
