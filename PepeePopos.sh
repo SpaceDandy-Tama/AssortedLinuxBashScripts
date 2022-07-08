@@ -65,8 +65,9 @@ Packages[18]=krita #Photoshop alternative
 Packages[19]=inkscape #Illustrator alternative
 Packages[20]=kdenlive #Video Editor
 Packages[21]=obs-studio #Screen Recorder
-Packages[22]=bookworm # Ebook reader
-Packages[23]=okular # PDF reader (has background color change support)
+Packages[22]=okular # PDF reader (has background color change support)
+Packages[23]=flatseal # manage flatpack permissions
+Packages[24]=spice-vdagent # virtual machine guest tools
 
 for i in "${Packages[@]}"
 do
@@ -131,6 +132,11 @@ if [ "$OperaDependenciesInstalled" = true ] ; then
 		cd .. && rm -rf ./fix-opera-linux-ffmpeg-widevine
 	fi
 fi
+
+# Webp support to Image Viewer
+sudo add-apt-repository ppa:helkaluin/webp-pixbuf-loader
+sudo apt update
+sudo apt install webp-pixbuf-loader
 
 # Cleanup
 sudo apt autoremove -y
