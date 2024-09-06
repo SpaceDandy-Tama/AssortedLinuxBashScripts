@@ -82,7 +82,7 @@ sudo apt-get install libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1-mesa-glx:
 
 sudo apt install git -y
 sudo apt install git-lfs -y
-git-lfs install
+git lfs install
 
 sudo apt purge kdeconnect -y
 sudo apt purge systemsettings -y
